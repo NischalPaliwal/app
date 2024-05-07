@@ -45,14 +45,29 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         paddingHorizontal: 14,
-        marginTop: 8
+        marginTop: 8,
+        marginBottom: 8
     },
     container: {
 
     },
     userCard: {
-
+        flex: 1,
+        alignItems: 'flex-start',
+        marginVertical: 8,
+        marginHorizontal: 14,
+        backgroundColor: '#8D3DAF',
+        borderRadius: 12,
+        paddingHorizontal: 14,
+        paddingVertical: 8
     },
-    userName: {},
-    userStatus: {}
+    userName: {
+        color: '#FFFFFF',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    userStatus: {
+        color: '#FFFFFF',
+        fontSize: 14
+    }
 })
