@@ -24,12 +24,14 @@ export default function App_3() {
   }
 
   const createPassword = (characters: string, passwordLength: number) => {
-
-  }
-
-  const resetPasswordState = () => {
+  let result = ''
+  for (let i = 0; i < passwordLength; i++) {
+    const characterIndex = Math.round(Math.random() * characters.length)
     
   }
+  }
+
+  const resetPasswordState = () => {}
 
   return (
     <View>
