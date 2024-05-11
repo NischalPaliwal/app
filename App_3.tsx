@@ -112,17 +112,44 @@ export default function App_3() {
          </View>
          <View style = {styles.inputWrapper}>
           <Text style = {styles.heading}>
-           Include Lowercase
+           Include Lowercase Letters
           </Text>
           <BouncyCheckbox
           isChecked = {lowerCase}
           onPress={() => setLowerCase(!lowerCase)}
-          fillColor = '#29AB87'
+          fillColor = "#29AB87"
           />
          </View>
-         <View style = {styles.inputWrapper}></View>
-         <View style = {styles.inputWrapper}></View>
-         <View style = {styles.inputWrapper}></View>
+         <View style = {styles.inputWrapper}>
+          <Text style = {styles.heading}>
+           Include Uppercase Letters
+          </Text>
+          <BouncyCheckbox
+          isChecked = {lowerCase}
+          onPress={() => setLowerCase(!lowerCase)}
+          fillColor = "#29AB87"
+          />
+         </View>
+         <View style = {styles.inputWrapper}>
+          <Text style = {styles.heading}>
+           Include Numbers
+          </Text>
+          <BouncyCheckbox
+          isChecked = {lowerCase}
+          onPress={() => setLowerCase(!lowerCase)}
+          fillColor = "#29AB87"
+          />
+         </View>
+         <View style = {styles.inputWrapper}>
+          <Text style = {styles.heading}>
+           Include Symbols
+          </Text>
+          <BouncyCheckbox
+          isChecked = {lowerCase}
+          onPress={() => setLowerCase(!lowerCase)}
+          fillColor = "#29AB87"
+          />
+         </View>
 
          <View style = {styles.formActions}>
          <TouchableOpacity><Text>Generate Password </Text></TouchableOpacity>
