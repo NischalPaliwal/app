@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
@@ -69,9 +69,70 @@ export default function App_3() {
   }
 
   return (
-    <View>
-      <Text>App</Text>
+    <ScrollView keyboardShouldPersistTaps = "handled" style = {styles.appContainer}>
+    <View style = {styles.formContainer}>
+    <Text style = {styles.title}>
+      Password Generator</Text>
+      <Formik
+       initialValues={{passwordLength: ''}}
+       validationSchema={PasswordSchema}
+       onSubmit={values => {
+        console.log(values)
+        generatePasswordString(Number(values.passwordLength))
+       }}
+     >
+       {({
+         values,
+         errors,
+         touched,
+         isValid,
+         handleChange,
+         handleBlur,
+         handleSubmit,
+         handleReset,
+         isSubmitting,
+         /* and other goodies */
+       }) => (
+         <>
+         <View style = {styles.inputWrapper}>
+          <View style = {styles.inputColumn}>
+          <Text style = {styles.heading}>Password Length</Text>
+           {touched.passwordLength && errors.passwordLength &&
+            (<Text style = {styles.errorText}>
+            {errors.passwordLength}
+            </Text>)}
+          </View>
+          <TextInput
+          style = {styles.inputStyle}
+          value = {values.passwordLength}
+          onChangeText={handleChange('passwordLength')}
+          placeholder = "Ex"
+          keyboardType = 'numeric'
+          />
+         </View>
+         <View style = {styles.inputWrapper}>
+          <Text style = {styles.heading}>
+           Include Lowercase
+          </Text>
+          <BouncyCheckbox
+          isChecked = {lowerCase}
+          onPress={() => setLowerCase(!lowerCase)}
+          fillColor = '#29AB87'
+          />
+         </View>
+         <View style = {styles.inputWrapper}></View>
+         <View style = {styles.inputWrapper}></View>
+         <View style = {styles.inputWrapper}></View>
+
+         <View style = {styles.formActions}>
+         <TouchableOpacity><Text>Generate Password </Text></TouchableOpacity>
+         <TouchableOpacity><Text>Reset</Text></TouchableOpacity>
+         </View>
+         </>
+       )}
+     </Formik>
     </View>
+    </ScrollView>
   )
 }
 
