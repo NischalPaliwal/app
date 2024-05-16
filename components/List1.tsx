@@ -11,7 +11,7 @@ function List1() : JSX.Element {
 return(
     <View style = {styles.container}>
         <Text style = {isLightMode ? styles.darkText : styles.whiteText}>
-            List1
+            Home
         </Text>
     </View>
 )

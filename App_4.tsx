@@ -1,12 +1,26 @@
-import { NavigationContainer } from "@react-navigation/native"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import List1 from "./components/List1"
-import List2 from "./components/List2"
+import React from 'react';
+import {
+  Text,
+  View
+} from 'react-native';
 
-const Tabs = createBottomTabNavigator()
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import List1 from './components/List1';
+import List2 from './components/List2';
 
-function tabs() {
-    return()
+const tabs = createBottomTabNavigator()
+
+function App(): JSX.Element {
+
+  return (
+    <NavigationContainer>
+       <tabs.Navigator>
+        <tabs.Screen name = 'Home' component={List1}/>
+        <tabs.Screen name = 'Profile' component={List2}/>
+       </tabs.Navigator>
+    </NavigationContainer>
+  );
 }
 
-export default tabs();
+export default App;

@@ -11,7 +11,7 @@ function List2() : JSX.Element {
 return(
     <View style = {styles.container}>
         <Text style = {isLightMode ? styles.darkText : styles.whiteText}>
-            List2
+            Profile
         </Text>
     </View>
 )
