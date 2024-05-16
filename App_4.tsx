@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+    Pressable,
+    StyleSheet,
   Text,
   View
 } from 'react-native';
@@ -15,7 +17,11 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-       <tabs.Navigator>
+       <tabs.Navigator
+       screenOptions={{
+        tabBarStyle: {...styles.tabContainer},
+        tabBarShowLabel: true,
+       }}>
         <tabs.Screen name = 'Home' component={List1}/>
         <tabs.Screen name = 'Profile' component={List2}/>
        </tabs.Navigator>
@@ -24,3 +30,22 @@ function App(): JSX.Element {
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+    tabContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '90%',
+        height: 70,
+        backgroundColor: '#6434eb',
+        borderRadius: 30,
+        elevation: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        paddingHorizontal: 20,
+        alignItems: 'center',
+        marginVertical: 12,
+        marginHorizontal: 20,
+        borderColor: '#FFFFFF'
+    }
+})
