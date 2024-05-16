@@ -125,8 +125,8 @@ export default function App_3() {
            Include Uppercase Letters
           </Text>
           <BouncyCheckbox
-          isChecked = {lowerCase}
-          onPress={() => setLowerCase(!lowerCase)}
+          isChecked = {upperCase}
+          onPress={() => setLowerCase(!upperCase)}
           fillColor = "#29AB87"
           />
          </View>
@@ -135,8 +135,8 @@ export default function App_3() {
            Include Numbers
           </Text>
           <BouncyCheckbox
-          isChecked = {lowerCase}
-          onPress={() => setLowerCase(!lowerCase)}
+          isChecked = {numbers}
+          onPress={() => setLowerCase(!numbers)}
           fillColor = "#29AB87"
           />
          </View>
@@ -145,20 +145,37 @@ export default function App_3() {
            Include Symbols
           </Text>
           <BouncyCheckbox
-          isChecked = {lowerCase}
-          onPress={() => setLowerCase(!lowerCase)}
+          isChecked = {symbols}
+          onPress={() => setLowerCase(!symbols)}
           fillColor = "#29AB87"
           />
          </View>
 
          <View style = {styles.formActions}>
-         <TouchableOpacity><Text>Generate Password </Text></TouchableOpacity>
-         <TouchableOpacity><Text>Reset</Text></TouchableOpacity>
+         <TouchableOpacity 
+         disabled = {!isValid}
+         style = {styles.primaryBtn}
+         onPress={() => {handleSubmit()}}
+         ><Text style = {styles.primaryBtnTxt}>Generate Password </Text></TouchableOpacity>
+         <TouchableOpacity
+         style = {styles.secondaryBtn}
+         onPress={() => {
+          handleReset();
+          resetPasswordState()
+        }}
+         ><Text style = {styles.secondaryBtnTxt}>Reset</Text></TouchableOpacity>
          </View>
          </>
        )}
      </Formik>
     </View>
+    {isPassGenerated ? (
+    <View style = {[styles.card, styles.cardElevated]}>
+      <Text style = {styles.subTitle}>Result:</Text>
+      <Text style = {styles.description}>Long Press to Copy</Text>
+      <Text selectable = {true} style = {styles.generatedPassword}>{password}</Text>
+    </View>
+    ) : null}
     </ScrollView>
   )
 }
@@ -175,11 +192,13 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: '600',
     marginBottom: 15,
+    color: '#000000'
   },
   subTitle: {
     fontSize: 26,
     fontWeight: '600',
     marginBottom: 2,
+    color: '#000000'
   },
   description: {
     color: '#758283',
@@ -222,22 +241,27 @@ const styles = StyleSheet.create({
   primaryBtnTxt: {
     color: '#fff',
     textAlign: 'center',
-    fontWeight: '700',
+    fontWeight: 'bold',
   },
   secondaryBtn: {
     width: 120,
     padding: 10,
     borderRadius: 8,
     marginHorizontal: 8,
-    backgroundColor: '#CAD5E2',
+    backgroundColor: '#5DA3FA',
+    justifyContent: 'center'
   },
   secondaryBtnTxt: {
     textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold'
   },
   card: {
     padding: 12,
     borderRadius: 6,
     marginHorizontal: 12,
+    borderColor: '#000000',
+    borderWidth: 2
   },
   cardElevated: {
     backgroundColor: '#ffffff',
