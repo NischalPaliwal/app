@@ -11,7 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import List1 from './components/List1';
 import List2 from './components/List2';
-import List3 from './components/List3'
+import List3 from './components/List3';
 
 const tabs = createBottomTabNavigator()
 
@@ -27,7 +27,6 @@ function App(): JSX.Element {
         <tabs.Screen 
         name = 'Home' 
         component={List1}
-
         />
         <tabs.Screen name = 'Profile' component={List2}/>
         <tabs.Screen name = 'Settings' component={List3}/>
