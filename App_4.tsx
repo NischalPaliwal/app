@@ -22,7 +22,7 @@ function App(): JSX.Element {
        <tabs.Navigator
        screenOptions={{
         tabBarStyle: {...styles.tabContainer},
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
        }}>
         <tabs.Screen 
         name = 'Home' 
@@ -40,18 +40,12 @@ export default App;
 const styles = StyleSheet.create({
     tabContainer: {
         position: 'absolute',
-        bottom: 0,
-        width: '90%',
-        height: 70,
-        backgroundColor: '#6434eb',
-        borderRadius: 30,
-        elevation: 5,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        paddingHorizontal: 20,
-        alignItems: 'center',
-        marginVertical: 12,
-        marginHorizontal: 20,
-        borderColor: '#FFFFFF'
+        bottom: 25,
+        left: 20,
+        right: 20,
+        elevation: 0,
+        backgroundColor: '#ffffff',
+        borderRadius: 15,
+        height: 90
     }
 })
