@@ -27,6 +27,7 @@ function App(): JSX.Element {
        screenOptions={{
         tabBarStyle: {...styles.tabContainer},
         tabBarShowLabel: false,
+        headerShown: false
        }}>
         <tabs.Screen 
         name = 'Home' 
